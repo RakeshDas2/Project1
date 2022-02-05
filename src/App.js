@@ -1,9 +1,14 @@
 
-import { Container, Nav, Navbar } from 'react-bootstrap';
-import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
-import AddEmployee from './components/AddEmployee';
+import './App.css';
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import TableShow from './components/TableShow';
+
+import Login from './components/Login';
+import Registration from './components/Registration';
+import { Container, Nav, Navbar, Table } from 'react-bootstrap';
 import Home from './components/Home';
-import Table from './components/Table';
+import AddEmployee from './components/AddEmployee'
+
 
 
 function App() {
@@ -16,7 +21,7 @@ function App() {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto">
-                <Link to="/table">Employees</Link>
+                <Link to="/tableshow">Employees</Link>
                 <Link to="/add-employee" style={{marginLeft:'15px'}}>Add Employee</Link>
               </Nav>
             </Navbar.Collapse>
@@ -25,12 +30,13 @@ function App() {
         <div>
     
             <Route exact={true} path="/" component={Home} />
-            <Route path="/table" component={Table} />
+            <Route path="/tableshow" component={TableShow} />
             <Route path="/add-employee" component={AddEmployee} />
         
         </div>
       </div>
     </Router>
+
   );
 }
 
