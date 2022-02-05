@@ -1,5 +1,6 @@
 
 import './App.css';
+import TableShow from './components/TableShow';
 
 import Login from './components/Login';
 import Registration from './components/Registration';
@@ -7,10 +8,8 @@ import Registration from './components/Registration';
 
 function App() {
   return (
-    <div className="App" >
-      <Registration/>
-      {/* <Login/> */}
-      
+
+
     </div>
   );
 }
