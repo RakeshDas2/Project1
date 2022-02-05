@@ -1,13 +1,14 @@
 
-import { Container, Nav, Navbar } from 'react-bootstrap';
-import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
-import AddEmployee from './components/AddEmployee';
-import Home from './components/Home';
-import Table from './components/Table';
+import './App.css';
+import TableShow from './components/TableShow';
+
+import Login from './components/Login';
+import Registration from './components/Registration';
 
 
 function App() {
   return (
+
     <Router>
       <div className='App'>
         <Navbar className='navbar navbar-expand-lg navbar-primary bg-dark'>
@@ -31,6 +32,7 @@ function App() {
         </div>
       </div>
     </Router>
+
   );
 }
 
