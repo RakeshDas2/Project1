@@ -7,8 +7,6 @@ function Registration(props) {
     const [userDetails, setuserDetails] = useState({
         firstName: '',
         lastName: '',
-        gender: '',
-        phoneNumber: '',
         email: '',
         password: '',
         confirmPassword: '',
