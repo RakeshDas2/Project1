@@ -1,12 +1,15 @@
 .main_divtag{
   background-color: rgb(27, 105, 158);
-  width: 600px;
-  height: 700px;
+  width: 482px;
+  height: 551px;
   margin-left: 600px;
   margin-top: 100px;
   padding-left: 100px;
    padding: 25px; 
   padding-top: 25px;
+  position: relative;
+  bottom:50px;
+  right: 180px;
 } 
 
 h2{
@@ -87,4 +90,6 @@ background-color: darkgreen;
 
  body {
   background: -webkit-radial-gradient(top left, #90f6fb, #2c3283);
+
 } 
+
