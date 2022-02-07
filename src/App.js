@@ -1,4 +1,5 @@
 import './App.css';
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import TableShow from './components/TableShow';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Home from './components/Home';
@@ -23,7 +24,7 @@ function App() {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto">
-                <Link to="/table">Employees</Link>
+                <Link to="/tableshow">Employees</Link>
                 <Link to="/add-employee" style={{marginLeft:'15px'}}>Add Employee</Link>
               </Nav>
             </Navbar.Collapse>
