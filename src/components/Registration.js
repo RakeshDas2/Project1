@@ -1,9 +1,16 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
+
+import { Link } from 'react-router-dom';
+import ContextData from '../context/context';
+import { withRouter } from 'react-router-dom';
 
 
 
 function Registration(props) {
+
+    const recivedData=useContext(ContextData)
+
     const [userDetails, setuserDetails] = useState({
         firstName: '',
         lastName: '',
@@ -41,7 +48,8 @@ function Registration(props) {
         
         if (isFirstNameValid && isLastNameValid && isEmailValid && isPasswordValid && isConfirmPasswordValid) {
             alert('Valid')
-            props.setData([...props.data, userDetails])
+            //  props.setData([...props.data, userDetails])
+            props.history.push('/login')
          
         } else {
             alert('Not Valid')
@@ -103,7 +111,7 @@ function Registration(props) {
     }
     const validatePassword = (password) => {
         if (password) {
-            let pass = /^(?=.\d)(?=.[a-z])(?=.[A-Z])(?=.[!@#$^&*]).{6,20}$/;
+            let pass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
             if (password.match(pass)) {
                 setisPasswordValid(true)
                 setpasswordError('')
@@ -227,10 +235,7 @@ function Registration(props) {
                     <button className="form-control btn btn-success" type="submit" onClick={submit} >Sign Up</button>
                 </div>
                 <div>
-                    <p>Already having an account <span style={{
-                        textDecoration:'underline',
-                        color:'blue'
-                    }}>Sign in</span></p>
+                    <p>Already having an account <Link to='/login'>Login</Link></p>
                 </div>
 
             </form>
@@ -240,4 +245,4 @@ function Registration(props) {
   </div>;
 }
 
-export default Registration
+export default withRouter(Registration)

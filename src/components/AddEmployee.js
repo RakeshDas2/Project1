@@ -1,7 +1,8 @@
-import React,{ useEffect, useState } from 'react';
+import React,{ useContext, useEffect, useState } from 'react';
+import ContextData from '../context/context';
 
 function AddEmployee() {
-    const [employeeData, setEmployeeData] = useState([]);
+   const recivedData=useContext(ContextData)
     const [employeeDetails, setEmployeeDetails] = useState({
         fullName:'',
         designation:'',
@@ -26,11 +27,10 @@ function AddEmployee() {
         const isAgeValid=validateAge(employeeDetails.age)
 
         if (isNameValid && isDesignationValid && isSalaryValid && isAgeValid){
-            setEmployeeData([
-                ...employeeData,
-                employeeDetails
-            ])
-            console.log(employeeData);
+          const array= [...recivedData.storeData]
+          array.push(employeeDetails)
+          recivedData.setStoreData(array)
+            console.log(recivedData.storeData);
             setEmployeeDetails({
                 fullName:'',
                 designation:'',
