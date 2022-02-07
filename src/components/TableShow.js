@@ -11,6 +11,12 @@ function TableShow() {
     salary:'',
     age:''
   })
+
+  const deleteData=(index)=>{
+    const array=[...contextValue.storeData]
+    array.splice(index,1)
+    contextValue.setStoreData(array)
+  }
   return <div>
    <Table striped bordered hover variant="dark">
   <thead>
@@ -25,7 +31,18 @@ function TableShow() {
     </tr>
   </thead>
   <tbody>
-    
+    {contextValue.storeData && contextValue.storeData.map((data,index)=>{
+      return (
+        <tr key={index}>
+              <td>{data.fullName}</td>
+              <td>{data.designation}</td>
+              <td>{data.salary}</td>
+              <td>{data.age}</td>
+              <td><button>Edit</button></td>
+              <td><button onClick={(index)=>{deleteData(index)}}>Delete</button></td>
+        </tr>
+      )
+    }) }
   </tbody>
 </Table>
   </div>;

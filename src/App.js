@@ -13,6 +13,11 @@ import { ContextProvider } from './context/context';
 function App() {
   const[storeData,setStoreData]=useState([])
   const [showEditModal,setEditModal]=useState(false)
+  const [showLogin,setShowLogin]=useState(true)
+
+  const changeLogin=()=>{
+    setShowLogin(true)
+  }
   return (
    
       <Router>
@@ -23,17 +28,19 @@ function App() {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto">
-                <Link to="/tableshow">Employees</Link>
-                <Link to="/add-employee" style={{marginLeft:'15px'}}>Add Employee</Link>
+               {showLogin ? <div><Link to="/login">Login</Link ><Link to='/registration'>Register</Link></div>: <div style={{display:'flex'}}><div><Link to="/tableshow">Employees</Link>
+                <Link to="/add-employee" style={{marginLeft:'15px'}}>Add Employee</Link></div><div><Link to='/login' onClick={()=>{changeLogin()}}>LogOut</Link></div></div>}
               </Nav>
             </Navbar.Collapse>
           </Container>
         </Navbar>
         <div>
-        <ContextProvider value={{storeData,setStoreData,showEditModal,setEditModal}}>
+        <ContextProvider value={{storeData,setStoreData,showEditModal,setEditModal,setShowLogin}}>
             <Route exact={true} path="/" component={Home} />
             <Route path="/tableshow" component={TableShow} />
             <Route path="/add-employee" component={AddEmployee} />
+            <Route path='/login' component={Login}/>
+            <Route path='/registration' component={Registration}/>
             </ContextProvider>
         </div>
       </div>

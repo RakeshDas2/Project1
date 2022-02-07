@@ -1,14 +1,17 @@
 
 import '../App.css'
 
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom/cjs/react-router-dom.min';
+import ContextData from '../context/context';
 
 function Login(props) {
   const [user, setuser] = useState({
     email: '',
     password: ''
   })
-
+const dataReceived=useContext(ContextData)
   const [isEmailValid, setisEmailValid] = useState(true)
   const [emailError, setemailError] = useState('')
 
@@ -20,6 +23,11 @@ function Login(props) {
 
     const validEmail = validateEmail(user.email)
     const validPass = validatePass(user.password)
+    if(validEmail && validPass){
+      dataReceived.setShowLogin(false)
+      props.history.push('/tableshow')
+
+    }
 
   })
 
@@ -93,11 +101,11 @@ function Login(props) {
 
         </form> <br /> <br />
         <div className='box2'>
-          <p>New user? <a href=''>Create an account.</a> </p>
+          <p>New user? <Link to='/registration' > Create an account.</Link> </p>
         </div>
       </div>
     </div>
   );
 }
 
-export default Login;
+export default withRouter(Login);
