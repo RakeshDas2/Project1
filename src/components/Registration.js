@@ -186,7 +186,7 @@ function Registration(props) {
                                 value={userDetails.lastName} />
                             {!isLastNameValid ? <span style={{
                                 color: 'red',
-                                fontSize: '10px'
+                                fontSize: '12px'
                             }}>{lastNameError}</span> : null}
                         </div>
                     </div>
