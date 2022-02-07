@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Table } from 'react-bootstrap';
+import ContextData from '../context/context';
 
 function TableShow() {
-  const[storeData,setStoreData]=useState([])
+  const contextValue=useContext(ContextData)
+  console.log(contextValue.storeData);
   const[employee,setEmployee]=useState({
     fullName:'',
     designation:'',
