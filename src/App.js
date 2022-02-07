@@ -8,13 +8,20 @@ import Registration from './components/Registration';
 import {  Container, Nav, Navbar, Table } from 'react-bootstrap';
 import { useState } from 'react';
 import { ContextProvider } from './context/context';
+import EditEmployee from './components/EditEmployee';
 
 
 function App() {
   const[storeData,setStoreData]=useState([])
   const [showEditModal,setEditModal]=useState(false)
   const [showLogin,setShowLogin]=useState(true)
-
+  const[selectedEmployee,setSelectedEmployee]=useState({
+    fullName:'',
+    designation:'',
+    salary:'',
+    age:''
+  })
+const [index,setIndex]=useState(0)
   const changeLogin=()=>{
     setShowLogin(true)
   }
@@ -35,12 +42,13 @@ function App() {
           </Container>
         </Navbar>
         <div>
-        <ContextProvider value={{storeData,setStoreData,showEditModal,setEditModal,setShowLogin}}>
+        <ContextProvider value={{storeData,setStoreData,showEditModal,setEditModal,setShowLogin,selectedEmployee,setSelectedEmployee,setIndex,index}}>
             <Route exact={true} path="/" component={Home} />
             <Route path="/tableshow" component={TableShow} />
             <Route path="/add-employee" component={AddEmployee} />
             <Route path='/login' component={Login}/>
             <Route path='/registration' component={Registration}/>
+            <Route path='/editEmployee' component={EditEmployee} />
             </ContextProvider>
         </div>
       </div>
