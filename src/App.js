@@ -1,9 +1,12 @@
 
 import './App.css';
 import TableShow from './components/TableShow';
-
+import Home from './components/Home'
+import AddEmployee from './components/AddEmployee';
 import Login from './components/Login';
 import Registration from './components/Registration';
+import { Link, Route, Router } from 'react-router-dom';
+import { Container, Nav, Navbar, Table } from 'react-bootstrap';
 
 
 function App() {
@@ -24,7 +27,7 @@ function App() {
           </Container>
         </Navbar>
         <div>
-    
+  
             <Route exact={true} path="/" component={Home} />
             <Route path="/table" component={Table} />
             <Route path="/add-employee" component={AddEmployee} />
