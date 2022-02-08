@@ -96,13 +96,11 @@ const dataReceived=useContext(ContextData)
 
             <div className='btn'>
               <input type='submit' value='Sign in' className='btn' />
-            </div> <br /> <br /> <br />
+            </div> <br /> 
           </div>
-
-        </form> <br /> <br />
-        <div className='box2'>
-          <p>New user? <Link to='/registration' > Create an account.</Link> </p>
-        </div>
+          <p>New user? <Link to='/registration' style={{color:'whitesmoke'}} > Create an account.</Link> </p>
+        </form> <br /> 
+       
       </div>
     </div>
   );

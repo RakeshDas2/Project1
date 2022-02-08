@@ -1,13 +1,10 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Button, Modal, ModalBody, ModalTitle } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
 import ContextData from '../context/context';
 
 function EditEmployee(props) {
  const contextValue=useContext(ContextData)
- // const data={...contextValue.selectedEmployee}
- console.log(contextValue);
-//console.log(data.fullName);
 
 const[selectedEmployee1,setSelectedEmployee1]=useState({
   fullName:'',
@@ -16,15 +13,11 @@ const[selectedEmployee1,setSelectedEmployee1]=useState({
   age:''
 })
 
+useEffect(()=>{
+setSelectedEmployee1({...contextValue.selectedEmployee});
+},[])
 
  const eventHandler=(e)=>{
-//const dataCopy={...data}
-//dataCopy[contextValue.index][e.target.name]=e.target.value
-
-//const selectedEmployee1Copy={...selectedEmployee1}
-//console.log(selectedEmployee1Copy.fullName);
-// selectedEmployeeCopy[contextValue.index][e.target.name]=e.target.value
-//console.log(selectedEmployee1Copy);
 const employeeCopy={...selectedEmployee1}
 employeeCopy[e.target.name]=e.target.value
 setSelectedEmployee1(employeeCopy)

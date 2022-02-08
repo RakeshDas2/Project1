@@ -31,24 +31,25 @@ const [index,setIndex]=useState(0)
       <div className='App'>
         <Navbar className='navbar navbar-expand-lg navbar-primary bg-dark'>
           <Container>
-            <Navbar.Brand style={{color:'white'}}>EMS </Navbar.Brand>
+            <Navbar.Brand style={{color:'white'}}><Link to='/'>EMS</Link> </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto">
                {showLogin ? <div><Link to="/login">Login</Link ><Link to='/registration'>Register</Link></div>: <div style={{display:'flex'}}><div><Link to="/tableshow">Employees</Link>
                 <Link to="/add-employee" style={{marginLeft:'15px'}}>Add Employee</Link></div><div><Link to='/login' onClick={()=>{changeLogin()}}>LogOut</Link></div></div>}
               </Nav>
+
             </Navbar.Collapse>
           </Container>
         </Navbar>
         <div>
         <ContextProvider value={{storeData,setStoreData,showEditModal,setEditModal,setShowLogin,selectedEmployee,setSelectedEmployee,setIndex,index}}>
-            <Route exact={true} path="/" component={Home} />
-            <Route path="/tableshow" component={TableShow} />
-            <Route path="/add-employee" component={AddEmployee} />
-            <Route path='/login' component={Login}/>
-            <Route path='/registration' component={Registration}/>
-            <Route path='/editEmployee' component={EditEmployee} />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/tableshow" component={TableShow} />
+            <Route exact path="/add-employee" component={AddEmployee} />
+            <Route exact path='/login' component={Login}/>
+            <Route exact path='/registration' component={Registration}/>
+            <Route exact path='/editEmployee' component={EditEmployee} />
             </ContextProvider>
         </div>
       </div>
